@@ -33,14 +33,18 @@ public class RechenService {
         int a = Math.abs( zahl1 );
         int b = Math.abs( zahl2 );
         
+        int anzIterationen = 0; 
         while ( b != 0 ) {
             
             int rest = a % b;
             a = b;
             b = rest;
+            
+            anzIterationen++;
         }
         
-        LOG.info( "ggT von {} und {} berechnet: {}", zahl1, zahl2, a );
+        LOG.info( "ggT von {} und {} berechnet: {} (Anzahl Iterationen: {})", 
+                  zahl1, zahl2, a, anzIterationen );
         
         return a;
     }
