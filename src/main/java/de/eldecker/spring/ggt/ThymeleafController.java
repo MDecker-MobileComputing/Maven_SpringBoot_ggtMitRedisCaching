@@ -49,14 +49,14 @@ public class ThymeleafController {
                                 @RequestParam( value = "zahl_1", required = true ) int zahl1,
                                 @RequestParam( value = "zahl_2", required = true ) int zahl2 
                               ) {
-        
-        LOG.info( "Anfrage fuer ggT von {} und {}.", zahl1, zahl2 );
-        
+              
         final int ggt = _rechenService.berechneGGT( zahl1, zahl2 );
         
         model.addAttribute( "zahl_1", zahl1 )
              .addAttribute( "zahl_2", zahl2 )
              .addAttribute( "ggt"   , ggt   );
+        
+        LOG.info( "Anfrage fuer ggT von {} und {} beantwortet mit {}.", zahl1, zahl2, ggt );
         
         return "ergebnis";
     }

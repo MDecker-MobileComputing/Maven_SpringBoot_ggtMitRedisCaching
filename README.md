@@ -8,6 +8,12 @@ vorgenommen werden kann. Das Ergebnis dieser Berechnung wird in einem Redis-Serv
 
 <br>
 
+Für Docker-Container mit Redis und Web-UI [Redis Insight](https://redis.io/insight/) 
+befindet sich in 
+[diesem Unterordner](DockerCompose-Redis+Insight) eine Datei `docker-compose.yml`.
+
+<br>
+
 ----
 
 ## License ##
