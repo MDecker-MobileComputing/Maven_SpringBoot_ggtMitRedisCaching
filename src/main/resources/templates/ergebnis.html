@@ -10,7 +10,14 @@
 
     <h1>ggT-Berechnung: Ergebnis</h1>
 
-    <p th:text="'Der ggT von ' + ${zahl_1} + ' und ' + ${zahl_2} + ' ist: ' + ${ggt}"></p>
+    <p>
+        Der ggT von 
+        <span th:text="${#numbers.formatDecimal(zahl_1, 0, 'POINT', 0, 'COMMA')}"></span>
+        und
+        <span th:text="${#numbers.formatDecimal(zahl_2, 0, 'POINT', 0, 'COMMA')}"></span>
+        ist:
+        <span class="fett" th:text="${#numbers.formatDecimal(ggt, 0, 'POINT', 0, 'COMMA')}"></span>
+    </p>
     <br><br>
 
     <a href="/formular.html">Weitere Berechnung durchführen</a>
