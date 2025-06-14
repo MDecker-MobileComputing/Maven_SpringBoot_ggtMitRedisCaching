@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ggT-Berechnung: Ergebnis</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../ggt-stil.css">
+</head>
+<body>
+
+    <h1>ggT-Berechnung: Ergebnis</h1>
+
+    <p th:text="'Der ggT von ' + ${zahl_1} + ' und ' + ${zahl_2} + ' ist: ' + ${ggt}"></p>
+    <br><br>
+
+    <a href="./formular.html">Weitere Berechnung durchführen</a>
+
+</body>
