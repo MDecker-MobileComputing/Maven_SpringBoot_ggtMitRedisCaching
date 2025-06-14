@@ -2,6 +2,7 @@ package de.eldecker.spring.ggt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 
@@ -20,6 +21,10 @@ public class RechenService {
      * <br><br>
      * 
      * Beispiel: ggT( 132, 28 ) = 4.
+     * <br><br>
+     * 
+     * Diese Methode wird gecached (siehe Annotation {@code @Cacheable("ggtCache")}), deshalb ist auch
+     * {@code @EnableCaching} in der Klasse {@code de.eldecker.spring.ggt.Application} notwendig.
      * 
      * @param zahl1 Zahl 1
      * 
@@ -27,6 +32,7 @@ public class RechenService {
      * 
      * @return ggT von {@code zahl1} und {@code zahl2}
      */
+    @Cacheable("ggtCache")
     public int berechneGGT( int zahl1, int zahl2 ) {
         
         // ggf negative Vorzeichen entfernen
