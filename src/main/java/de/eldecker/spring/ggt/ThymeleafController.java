@@ -54,9 +54,9 @@ public class ThymeleafController {
         
         final int ggt = _rechenService.berechneGGT( zahl1, zahl2 );
         
-        model.addAttribute( "zahl_1", zahl1 );
-        model.addAttribute( "zahl_2", zahl2 );
-        model.addAttribute( "ggt"  , ggt   );
+        model.addAttribute( "zahl_1", zahl1 )
+             .addAttribute( "zahl_2", zahl2 )
+             .addAttribute( "ggt"   , ggt   );
         
         return "ergebnis";
     }
