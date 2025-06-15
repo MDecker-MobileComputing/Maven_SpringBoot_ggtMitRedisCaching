@@ -22,14 +22,19 @@ public class ThymeleafController {
     /** Bean mit Geschäftslogik für Berechnung. */
     private RechenService _rechenService;
 
+    /** Bean für Steuerung von Redis-Cache. */
+    private RedisVerwaltung _redisVerwaltung;
+    
     
     /**
      * Konstruktor für Dependency Injection.
      */
     @Autowired
-    public ThymeleafController( RechenService rechenService ) {
+    public ThymeleafController( RechenService rechenService,
+                                RedisVerwaltung redisVerwaltung ) {
 
-        _rechenService = rechenService;
+        _rechenService   = rechenService;
+        _redisVerwaltung = redisVerwaltung;
     }
     
     
@@ -70,7 +75,7 @@ public class ThymeleafController {
     @GetMapping( "/cache-loeschen" )
     public String cacheLoeschen() {
         
-        _rechenService.cacheLoeschen();
+        _redisVerwaltung.cacheLoeschen();
 
         return "geloescht";
     }

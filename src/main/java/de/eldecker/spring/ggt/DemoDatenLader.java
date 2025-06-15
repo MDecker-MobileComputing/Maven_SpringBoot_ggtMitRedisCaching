@@ -17,28 +17,30 @@ public class DemoDatenLader implements ApplicationRunner {
 
     private final static Logger LOG = LoggerFactory.getLogger( DemoDatenLader.class );
     
-
-    private RechenService _rechenService;
+    /** Bean für Steuerung von Redis-Cache. */
+    private RedisVerwaltung _redisVerwaltung;
 
     
     /**
      * Konstruktor für Dependency Injection.
      */
     @Autowired
-    public DemoDatenLader( RechenService rechenService ) {
+    public DemoDatenLader( RedisVerwaltung redisVerwaltung ) {
 
-        _rechenService = rechenService;
+        _redisVerwaltung = redisVerwaltung;
     }
     
     
     /**
      * Methode lädt nach Start der Anwendung einige Demodaten in den ggT-Cache. 
+     * 
+     * @param args Wird nicht ausgewertet
      */
     @Override
     public void run( ApplicationArguments args ) throws Exception {
 
-        _rechenService.ggtSpeichern( 1, 2, 1 );
-        _rechenService.ggtSpeichern( 2, 4, 2 );
+        _redisVerwaltung.ggtSpeichern( 1, 2, 1 );
+        _redisVerwaltung.ggtSpeichern( 2, 4, 2 );
         
         LOG.info( "Demo-Daten in Cache geladen." );
     }
