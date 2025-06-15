@@ -55,6 +55,13 @@ public class ThymeleafController {
                                 @RequestParam( value = "zahl_2", required = true ) int zahl2 
                               ) {
               
+        if ( zahl1 > zahl2 ) {
+
+            int temp = zahl1;
+            zahl1    = zahl2;
+            zahl2    = temp;
+        }
+        
         final int ggt = _rechenService.berechneGGT( zahl1, zahl2 );
         
         model.addAttribute( "zahl_1", zahl1 )
