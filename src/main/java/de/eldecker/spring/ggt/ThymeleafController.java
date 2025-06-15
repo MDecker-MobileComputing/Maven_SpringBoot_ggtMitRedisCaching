@@ -61,4 +61,18 @@ public class ThymeleafController {
         return "ergebnis";
     }
     
+    
+    /**
+     * Alle Einträge in Cache löschen.
+     * 
+     * @return Name des Thymeleaf-Templates für Erfolgsmeldung bei Löschen.
+     */
+    @GetMapping( "/cache-loeschen" )
+    public String cacheLoeschen() {
+        
+        _rechenService.cacheLoeschen();
+
+        return "geloescht";
+    }
+    
 }

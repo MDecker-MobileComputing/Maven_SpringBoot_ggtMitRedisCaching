@@ -2,6 +2,7 @@ package de.eldecker.spring.ggt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -79,6 +80,16 @@ public class RechenService {
     public int ggtSpeichern( int zahl1, int zahl2, int ggt ) {
         
         return ggt;
+    }
+    
+    
+    /**
+     * Alle Einträge im Cache löschen.
+     */
+    @CacheEvict( value = "ggtCache", allEntries = true )
+    public void cacheLoeschen() {
+
+        LOG.info( "Cache für ggT-Werte geleert." );
     }
     
 }
