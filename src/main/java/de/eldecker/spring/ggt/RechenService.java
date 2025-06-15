@@ -58,8 +58,16 @@ public class RechenService {
     
     
     /**
-     * 
      * Methode um Demo-Daten/vorberechntete ggT-Werte in den Cache zu speichern.
+     * <br><br>
+     * 
+     * Beispielwert für Cache-Key: 
+     * <pre>
+     * meine_app::ggtCache::1-2
+     * </pre>
+     * <br>
+     * Das Prefix {@code meine_app} ist in der Datei {@code application.properties} 
+     * mit dem Parameter {@code spring.cache.redis.key-prefix} definiert.
      * 
      * @param zahl1 Zahl 1
      * 

@@ -17,7 +17,7 @@ public class DemoDatenLader implements ApplicationRunner {
 
     private final static Logger LOG = LoggerFactory.getLogger( DemoDatenLader.class );
     
-    /** Bean mit Geschäftslogik für Berechnung. */
+
     private RechenService _rechenService;
 
     
@@ -36,11 +36,11 @@ public class DemoDatenLader implements ApplicationRunner {
      */
     @Override
     public void run( ApplicationArguments args ) throws Exception {
-    
+
         _rechenService.ggtSpeichern( 1, 2, 1 );
         _rechenService.ggtSpeichern( 2, 4, 2 );
         
-        LOG.info( "Demodaten in Redis-Cache geladen." );
+        LOG.info( "Demo-Daten in Cache geladen." );
     }
     
 }
