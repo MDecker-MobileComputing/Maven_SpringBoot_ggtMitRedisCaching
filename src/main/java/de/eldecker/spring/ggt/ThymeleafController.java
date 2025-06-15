@@ -27,7 +27,7 @@ public class ThymeleafController {
      * Konstruktor für Dependency Injection.
      */
     @Autowired
-    public ThymeleafController(RechenService rechenService) {
+    public ThymeleafController( RechenService rechenService ) {
 
         _rechenService = rechenService;
     }

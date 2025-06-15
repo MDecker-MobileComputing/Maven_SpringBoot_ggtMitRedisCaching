@@ -2,6 +2,7 @@ package de.eldecker.spring.ggt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class RechenService {
      * 
      * @return ggT von {@code zahl1} und {@code zahl2}
      */
-    @Cacheable("ggtCache")
+    @Cacheable( value = "ggtCache", key = "#zahl1 + '-' + #zahl2" )
     public int berechneGGT( int zahl1, int zahl2 ) {
         
         // ggf negative Vorzeichen entfernen
@@ -53,6 +54,23 @@ public class RechenService {
                   zahl1, zahl2, a, anzIterationen );
         
         return a;
+    }
+    
+    
+    /**
+     * 
+     * Methode um Demo-Daten/vorberechntete ggT-Werte in den Cache zu speichern.
+     * 
+     * @param zahl1 Zahl 1
+     * 
+     * @param zahl2 Zahl 2
+     * 
+     * @return ggT von {@code zahl1} und {@code zahl2}
+     */
+    @CachePut( value = "ggtCache", key = "#zahl1 + '-' + #zahl2" )
+    public int ggtSpeichern( int zahl1, int zahl2, int ggt ) {
+        
+        return ggt;
     }
     
 }
