@@ -40,7 +40,6 @@ public class RechenService {
     @Cacheable( value = "ggtCache", key = "#zahl1 + '-' + #zahl2" )
     public int berechneGGT( int zahl1, int zahl2 ) {
         
-        
         // ggf negative Vorzeichen entfernen
         int a = Math.abs( zahl1 );
         int b = Math.abs( zahl2 );
