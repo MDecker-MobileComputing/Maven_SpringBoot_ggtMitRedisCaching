@@ -19,6 +19,7 @@
 
     <name>GGT-Berechnung</name>
     <description>Berechnung "Größter Gemeinsamer Teiler" mit Redis-Caching</description>
+    <inceptionYear>2025</inceptionYear>
 
     <properties>
         <java.version>21</java.version>

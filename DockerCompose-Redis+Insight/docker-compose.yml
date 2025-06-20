@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   redis:
-    image: redis:latest
+    image: redis:8.0.2 # neueste Version: https://hub.docker.com/_/redis
     container_name: redis4ggt
     ports:
       - "6379:6379"
@@ -11,7 +11,7 @@ services:
   # Web-UI for Redis: https://redis.io/insight/
   # Überblick weitere Redis-UIs: https://uibakery.io/blog/redis-gui-tools
   redisinsight:
-    image: redis/redisinsight:latest
+    image: redis/redisinsight:2.70.0 # https://hub.docker.com/r/redislabs/redisinsight/tags
     container_name: redisinsight4ggt
     ports:
       - "5540:5540"
